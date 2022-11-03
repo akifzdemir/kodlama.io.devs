@@ -31,6 +31,7 @@ public class TechnologyManager implements TechnologyService {
             technologyResponse.setName(technology.getName());
             technologyResponse.setProgramingLanguageId(technology.getProgramingLanguage().getId());
             technologyResponse.setId(technology.getId());
+            technologyResponse.setProgramingLanguageName(technology.getProgramingLanguage().getName());
             responses.add(technologyResponse);
         }
         return responses;

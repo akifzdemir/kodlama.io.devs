@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class TechnologyResponse {
     private int id;
     private int programingLanguageId;
+    private String programingLanguageName;
     private String name;
 }
