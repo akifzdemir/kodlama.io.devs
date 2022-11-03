@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface ProgramingLanguageService {
     List<ProgramingLanguageResponse> getALL();
-    ProgramingLanguageResponse getById(int id);
+    ProgramingLanguageResponse getResponseById(int id);
+    ProgramingLanguage getById(int id);
     void add(ProgramingLanguageRequest languageRequest) throws Exception;
     void delete(int id);
     void update(ProgramingLanguageRequest languageRequest,int id) throws Exception;

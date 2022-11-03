@@ -3,7 +3,6 @@ package kodlama.io.devs.webApi.controllers;
 import kodlama.io.devs.business.abstracts.ProgramingLanguageService;
 import kodlama.io.devs.business.requests.ProgramingLanguageRequest;
 import kodlama.io.devs.business.responses.ProgramingLanguageResponse;
-import kodlama.io.devs.entities.concretes.ProgramingLanguage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class ProgramingLanguagesController {
     }
     @GetMapping("/getbyid")
     public ProgramingLanguageResponse getById(@RequestParam int id){
-        return  programingLanguageService.getById(id);
+        return  programingLanguageService.getResponseById(id);
     }
     @PostMapping("/add")
     public void add(@RequestBody ProgramingLanguageRequest languageRequest) throws Exception {

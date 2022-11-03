@@ -6,22 +6,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Entity
 @Getter
 @Setter
-@Table(name = "programing_languages")
-@NoArgsConstructor
+@Entity
 @AllArgsConstructor
-public class ProgramingLanguage {
+@NoArgsConstructor
+@Table(name = "technologies")
+public class Technology {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private  int id;
     @Column(name = "name")
     private String name;
-
-    @OneToMany(mappedBy = "programingLanguage", cascade = CascadeType.ALL)
-    Set<Technology> technologies;
+    @ManyToOne
+    @JoinColumn(name = "programingLanguage_id")
+    private ProgramingLanguage programingLanguage;
 }

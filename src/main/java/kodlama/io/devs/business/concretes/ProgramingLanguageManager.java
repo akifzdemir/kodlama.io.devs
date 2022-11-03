@@ -31,12 +31,17 @@ public class ProgramingLanguageManager implements ProgramingLanguageService {
     }
 
     @Override
-    public ProgramingLanguageResponse getById(int id) {
+    public ProgramingLanguageResponse getResponseById(int id) {
         ProgramingLanguage programingLanguage = programingLanguageRepository.findById(id);
         ProgramingLanguageResponse languageResponse = new ProgramingLanguageResponse();
         languageResponse.setName(programingLanguage.getName());
         languageResponse.setId(programingLanguage.getId());
         return languageResponse;
+    }
+
+    @Override
+    public ProgramingLanguage getById(int id) {
+        return programingLanguageRepository.findById(id);
     }
 
     @Override
