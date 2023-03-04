@@ -1,10 +1,12 @@
 package kodlama.io.devs.webApi.controllers;
 
 import kodlama.io.devs.business.abstracts.TechnologyService;
-import kodlama.io.devs.business.requests.TechnologyRequest;
-import kodlama.io.devs.business.responses.TechnologyResponse;
+import kodlama.io.devs.business.requests.TechnologyAddRequest;
+import kodlama.io.devs.business.requests.TechnologyUpdateRequest;
+import kodlama.io.devs.business.responses.GetAllTechnologyResponse;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,16 +20,16 @@ public class TechnologiesController {
     }
 
     @GetMapping("/getall")
-    public List<TechnologyResponse> getAll(){
+    public List<GetAllTechnologyResponse> getAll(){
         return technologyService.getAll();
     }
     @PostMapping("/add")
-    public void add(@RequestBody TechnologyRequest technologyRequest){
-        technologyService.add(technologyRequest);
+    public void add(@RequestBody @Valid TechnologyAddRequest technologyAddRequest){
+        technologyService.add(technologyAddRequest);
     }
-    @PutMapping("/update/{id}")
-    public void update(@RequestBody TechnologyRequest technologyRequest,@PathVariable int id){
-        technologyService.update(technologyRequest,id);
+    @PutMapping("/update")
+    public void update(@RequestBody @Valid TechnologyUpdateRequest technologyUpdateRequest){
+        technologyService.update(technologyUpdateRequest);
     }
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){

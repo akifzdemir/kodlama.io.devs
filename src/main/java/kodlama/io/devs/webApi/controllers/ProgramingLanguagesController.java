@@ -1,10 +1,13 @@
 package kodlama.io.devs.webApi.controllers;
 
 import kodlama.io.devs.business.abstracts.ProgramingLanguageService;
-import kodlama.io.devs.business.requests.ProgramingLanguageRequest;
-import kodlama.io.devs.business.responses.ProgramingLanguageResponse;
+import kodlama.io.devs.business.requests.ProgramingLanguageAddRequest;
+import kodlama.io.devs.business.requests.ProgramingLanguageUpdateRequest;
+import kodlama.io.devs.business.responses.GetAllProgramingLanguageResponse;
+import kodlama.io.devs.business.responses.GetByIdProgramingLanguageResponse;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,24 +20,24 @@ public class ProgramingLanguagesController {
     }
 
     @GetMapping("/getall")
-    public List<ProgramingLanguageResponse> getAll(){
-        return  programingLanguageService.getALL();
+    public List<GetAllProgramingLanguageResponse> getAll(){
+        return  programingLanguageService.getAll();
     }
     @GetMapping("/getbyid")
-    public ProgramingLanguageResponse getById(@RequestParam int id){
+    public GetByIdProgramingLanguageResponse getById(@RequestParam int id){
         return  programingLanguageService.getResponseById(id);
     }
     @PostMapping("/add")
-    public void add(@RequestBody ProgramingLanguageRequest languageRequest) throws Exception {
+    public void add(@RequestBody @Valid ProgramingLanguageAddRequest languageRequest)  {
         programingLanguageService.add(languageRequest);
     }
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         programingLanguageService.delete(id);
     }
-    @PutMapping("/update/{id}")
-    public void update(@RequestBody ProgramingLanguageRequest languageRequest,@PathVariable int id) throws Exception {
-        programingLanguageService.update(languageRequest,id);
+    @PutMapping("/update")
+    public void update(@RequestBody @Valid ProgramingLanguageUpdateRequest languageRequest)  {
+        programingLanguageService.update(languageRequest);
     }
 
 }

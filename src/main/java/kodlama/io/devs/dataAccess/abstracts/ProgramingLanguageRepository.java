@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ProgramingLanguageRepository extends JpaRepository<ProgramingLanguage,Integer> {
     ProgramingLanguage findById(int id);
-    ProgramingLanguage findByName(String name);
+    boolean existsProgramingLanguageByName(String name);
 }

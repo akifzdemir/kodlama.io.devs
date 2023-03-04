@@ -1,13 +1,13 @@
-package kodlama.io.devs.business.requests;
+package kodlama.io.devs.business.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class TechnologyRequest {
-    private int programingLanguageId;
+@AllArgsConstructor
+public class GetAllProgramingLanguageResponse {
+    private  int id;
     private String name;
 }

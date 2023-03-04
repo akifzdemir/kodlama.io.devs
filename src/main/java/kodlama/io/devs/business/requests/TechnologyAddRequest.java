@@ -1,15 +1,17 @@
-package kodlama.io.devs.business.responses;
+package kodlama.io.devs.business.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class TechnologyResponse {
-    private int id;
+@NoArgsConstructor
+public class TechnologyAddRequest {
+    @NotNull
     private int programingLanguageId;
-    private String programingLanguageName;
+    @NotNull
     private String name;
 }
